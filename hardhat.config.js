@@ -10,6 +10,8 @@ dotenvExpand.expand(config);
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
+const REPORT_GAS = process.env.REPORT_GAS;
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -51,11 +53,11 @@ module.exports = {
         },
     },
     gasReporter: {
-        enabled: process.env.REPORT_GAS !== undefined,
+        enabled: REPORT_GAS !== undefined,
         currency: "USD",
     },
     etherscan: {
-        apiKey: process.env.ETHERSCAN_API_KEY,
+        apiKey: ETHERSCAN_API_KEY,
     },
     namedAccounts: {
         deployer: {
